@@ -1,0 +1,6 @@
+{
+    "name": "Текстовый ответ",
+    "type": "text",
+    "code": "<div class='question-body'><div class='answer'><input class='answer-input' type='text' placeholder='Введите правильный ответ'/></div></div>",
+    "addable_answer_code": null
+}

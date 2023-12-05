@@ -1,0 +1,6 @@
+{
+    "name": "Множественный выбор",
+    "type": "multiple",
+    "code": "<div class='question-body'><div class='answer'><input type='checkbox' value='1' /><input class='answer-input' type='text' placeholder='Введите вариант ответа' /></div><div class='answer'><input type='checkbox' value='2' /><input class='answer-input' type='text' placeholder='Введите вариант ответа' /></div><div class='answer'><input type='checkbox' /><input type='text' placeholder='Введите вариант ответа' /></div></div>",
+    "addable_answer_code": "<div class='answer'><input type='radio' /><input type='text' placeholder='Введите вариант ответа' /></div>"
+}
