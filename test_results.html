@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты теста</title>
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/create_test.css">
+</head>
+<body>
+    <h1>Результаты теста</h1>
+
+    <div id="test-result">
+        
+    </div>
+
+    <script>
+        let test_result = document.getElementById('test-result');
+        
+        test_result.innerHTML = `<p id="test-top-title">Вы получили ${localStorage.getItem("result")} из ${localStorage.getItem("question_amount")} баллов</p> <a class="text-button" style="font-size: 22px;" href="list_of_tests.html">На главную</a>`;
+
+        
+    </script>
+</body>
+</html>

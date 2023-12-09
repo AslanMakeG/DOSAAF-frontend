@@ -34,6 +34,21 @@ class BaseQuestion{
         return body;
     }
 
+    static create_divs(name, type){
+        let question_div = document.createElement('div');
+        question_div.classList.add('question');
+        question_div.dataset.type = type;
+
+        let question_top_div = document.createElement('div');
+        question_top_div.classList.add('question-top');
+        question_top_div.innerHTML = `<p class="question-top-title">${name}</p>`;
+
+        let question_body_div = document.createElement('div');
+        question_body_div.classList.add('question-body');
+
+        return {'question_div': question_div, 'question_top_div': question_top_div, 'question_body_div': question_body_div}
+    }
+
     //Отобразить вопрос (возвращает div элемент)
     display_question(){
         let question = document.createElement('div');
@@ -75,7 +90,28 @@ class OneChoiceQuestion extends BaseQuestion{
         );
     }
 
-    static save_answers(question){
+    static display_for_solving(question, name=''){
+        let divs = this.create_divs(question['name'], question['type'])
+        let question_div = divs['question_div'];
+        let question_top_div = divs['question_top_div'];
+        let question_body_div = divs['question_body_div'];
+
+        for(let i = 0; i < question['answers'].length; i++){
+            let answer_div = document.createElement('div');
+            answer_div.classList.add('answer');
+            answer_div.innerHTML += `<input type='radio' name="${name}" ${i == 0 ? "checked": ""}/>`;
+            answer_div.innerHTML += `<p class="answer-input"/>${question['answers'][i]}</p>`;
+
+            question_body_div.appendChild(answer_div);
+        }
+
+        question_div.appendChild(question_top_div);
+        question_div.appendChild(question_body_div);
+
+        return question_div;
+    }
+
+    static save_answers(question, isCreating = true){
         let answers = question.children[1].getElementsByClassName('answer');
 
         let current_answer = 0;
@@ -86,7 +122,7 @@ class OneChoiceQuestion extends BaseQuestion{
             let answer_name = answer.lastElementChild.value;
 
             //Проверка на пустоту имени вопроса
-            if(!answer_name){
+            if(!answer_name && isCreating){
                 throw new Error('Заполните все варианты ответов');
             }
 
@@ -115,6 +151,27 @@ class MultipleChoiceQuestion extends BaseQuestion{
         );
     }
 
+    static display_for_solving(question, name=''){
+        let divs = this.create_divs(question['name'], question['type'])
+        let question_div = divs['question_div'];
+        let question_top_div = divs['question_top_div'];
+        let question_body_div = divs['question_body_div'];
+
+        for(let i = 0; i < question['answers'].length; i++){
+            let answer_div = document.createElement('div');
+            answer_div.classList.add('answer');
+            answer_div.innerHTML = `<input type='checkbox' name="${name}" />`;
+            answer_div.innerHTML += `<p class="answer-input"/>${question['answers'][i]}</p>`;
+
+            question_body_div.appendChild(answer_div);
+        }
+
+        question_div.appendChild(question_top_div);
+        question_div.appendChild(question_body_div);
+
+        return question_div;
+    }
+
     static validate_answers(question){
         //Проверяем, чтобы хотя бы один чекбокс был выделен 
         let inputs = question.children[1].querySelectorAll('input[type=checkbox]');
@@ -131,8 +188,10 @@ class MultipleChoiceQuestion extends BaseQuestion{
         }
     }
 
-    static save_answers(question){
-        this.validate_answers(question);
+    static save_answers(question, isCreating = true){
+        if(isCreating)
+            this.validate_answers(question);
+
         let answers = question.children[1].getElementsByClassName('answer');
 
         let current_answer = 0;
@@ -143,7 +202,7 @@ class MultipleChoiceQuestion extends BaseQuestion{
             let answer_name = answer.lastElementChild.value;
 
             //Проверка на пустоту имени вопроса
-            if(!answer_name){
+            if(!answer_name && isCreating){
                 throw new Error('Заполните все варианты ответов');
             }
 
@@ -172,7 +231,24 @@ class TextChoiceQuestion extends BaseQuestion{
         );
     }
 
-    static save_answers(question){
+    static display_for_solving(question, name=''){
+        let divs = this.create_divs(question['name'], question['type'])
+        let question_div = divs['question_div'];
+        let question_top_div = divs['question_top_div'];
+        let question_body_div = divs['question_body_div'];
+
+        let answer_div = document.createElement('div');
+        answer_div.classList.add('answer');
+        answer_div.innerHTML += `<input class="answer-input" type='text' name="${name}" placeholder="Введите ответ"/>`;
+        question_body_div.appendChild(answer_div);
+
+        question_div.appendChild(question_top_div);
+        question_div.appendChild(question_body_div);
+
+        return question_div;
+    }
+
+    static save_answers(question, isCreating = true){
         let answers = question.children[1].getElementsByClassName('answer');
 
         let right_answers = [];
@@ -180,7 +256,7 @@ class TextChoiceQuestion extends BaseQuestion{
         let right_answer = answers[0].lastElementChild.value;
 
         //Проверка на пустоту ответа
-        if(!right_answer){
+        if(!right_answer && isCreating){
             throw new Error('Заполните все варианты ответов');
         }
 

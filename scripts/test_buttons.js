@@ -5,6 +5,7 @@ function delete_test(button){
     let status = delete_test_on_server(test_id, test);
 }
 
+//удалить тест на сервере
 function delete_test_on_server(id, element){
     fetch('http://127.0.0.1:8000/api/delete_test/' + id, {
         headers: {
@@ -16,4 +17,8 @@ function delete_test_on_server(id, element){
             element.parentNode.removeChild(element);
         }
     });
+} //стоит перенести в plugin_API
+
+function solve_test(button){
+    window.location.replace(`test.html?test_id=${button.dataset.id}`);
 }

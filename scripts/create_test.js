@@ -1,3 +1,5 @@
+load_plugins_on_select();
+
 let questions = document.getElementById('test-questions');
 let question_counter = 0;
 
