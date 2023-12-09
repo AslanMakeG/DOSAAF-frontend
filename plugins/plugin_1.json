@@ -1,6 +1,0 @@
-{
-    "name": "Один выбор",
-    "type": "one",
-    "code": "<div class='question-body'><div class='answer'><input type='radio' value='1' checked /><input type='text' placeholder='Введите вариант ответа' /></div><div class='answer'><input type='radio' value='2' /><input class='answer-input' type='text' placeholder='Введите вариант ответа' /></div></div>",
-    "addable_answer_code": "<div class='answer'><input type='radio' /><input type='text' placeholder='Введите вариант ответа' /></div>"
-}
