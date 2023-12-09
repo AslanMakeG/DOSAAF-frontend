@@ -6,25 +6,13 @@ function create_question(){
     let question_name = document.getElementById('question-name');
     let question_type = document.getElementById('question-type');
 
-    //Создание элементов с названием вопроса и типом (один, много ответов или текст)
-    let new_question = document.createElement('div');
-    new_question.innerHTML = 
-    `<div class="question-top">
-        <p class="question-top-title">Название вопроса:</p>
-        <input class="question-top-input" type="text" name="question-name" placeholder="Введите название вопроса" value="${question_name.value}">                   
-    </div>`; //Добавляем элементы для записи названия вопроса
+    let question = new load_plugins[question_type.value](question_name.value, 'asdasd');
 
-    new_question.classList.add('question'); //Добавляем класс элементу
-    new_question.dataset.type = question_type.value; //Добавляем тип вопроса элементу
-
-    question_content = content_by_type(question_type.value); //Добавляем содержимое в зависимости от типа
-
-    new_question.innerHTML += question_content;
-    questions.appendChild(new_question); //Добавляем вопрос на страницу
+    questions.appendChild(question.display_question()); //Добавляем вопрос на страницу
 
     close_modal_window(); //Закрываем модальное окно и сбрасываем значения в нём
     question_name.value = '';
-    question_type.value = 'one';
+    question_type.value = question_type.firstElementChild.value;
 }
 
 //Добавить вариант ответа к вопросу
