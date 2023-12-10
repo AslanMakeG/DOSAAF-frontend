@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Войти</title>
+    <title>Вход/регистрация</title>
     <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/auth_and_register.css">
 </head>
 <body>
     <header>
@@ -20,11 +21,51 @@
             <a class="header-link">Услуги</a>
         </div>
         <div class="user">
-            <img src="images/user_icon.png">
-            <a class="header-link">Войти</a>
+            <a id="profile-link" class="header-link">Войти</a>
         </div>
     </header>
 
-    <h1>Войти</h1>
+    <h1>Вход/регистрация</h1>
+
+    <div class="form-main">
+        <div class="choose-buttons">
+            <div id="auth-button" class="active-button" onclick="change_form_to_auth()">Вход</div>
+            <div id="register-button" onclick="change_form_to_register()">Регистрация</div>
+        </div>
+
+        <div id="auth-form">
+            <p class="label-input">Email</p>
+            <input id="auth-email" type="text" placeholder="Введите Email">
+            <p class="label-input">Пароль</p>
+            <input id="auth-password" type="password" placeholder="Введите пароль">
+            <div class="auth-bottom">
+                <div class="auth-button" onclick="auth_user()">Войти</div>
+                <p id="auth-error"></p>
+            </div>
+        </div>
+
+        <div id="register-form" class="closed-form">
+            <p class="label-input">Фамилия*</p>
+            <input id="register-surname" type="text" placeholder="Введите фамилию">
+            <p class="label-input">Имя*</p>
+            <input id="register-name" type="text" placeholder="Введите имя">
+            <p class="label-input">Отчество</p>
+            <input id="register-patronymic" type="text" placeholder="Введите отчество">
+            <p class="label-input">Email*</p>
+            <input id="register-email" type="text" placeholder="Введите Email">
+            <p class="label-input">Пароль*</p>
+            <input id="register-password" type="password" placeholder="Введите пароль">
+            <p class="label-input">Повторите пароль*</p>
+            <input id="register-repeat-password" type="password" placeholder="Повторите пароль">
+            <div class="register-bottom">
+                <div class="register-button" onclick="register_user()">Регистрация</div>
+                <p id="register-error"></p>
+            </div>
+        </div>
+    </div>
+
+    
 </body>
+<script src="scripts/auth_register.js"></script>
+<script src="scripts/profile_check.js"></script>
 </html>
