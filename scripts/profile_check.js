@@ -13,6 +13,7 @@ else{
 
     leave_account.addEventListener("click", function(e) {
         delete localStorage.UID;
+        window.location.replace('index.html');
     }, false);
 
 

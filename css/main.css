@@ -62,3 +62,23 @@ body{
     flex-direction: column;
     align-items: flex-end;
 }
+
+#bread-crumbs{
+    width: 75%;
+    display: flex;
+    margin: 10px 0 25px 0;
+}
+
+.bread-crumb, .bread-crumb-sep{
+    color: black;
+    text-decoration: none;
+}
+
+.bread-crumb{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bread-crumb-sep{
+    margin: 0 10px 0 10px;
+}

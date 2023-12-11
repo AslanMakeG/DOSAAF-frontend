@@ -13,7 +13,7 @@ body{
 
 #tests{
     margin-top: 25px;
-    width: 80%;
+    width: 75%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     row-gap: 10px;
@@ -60,7 +60,7 @@ body{
 }
 
 .create-test{
-    width: 80%;
+    width: 75%;
     display: flex;
     margin: 10px;
 }

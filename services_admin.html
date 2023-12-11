@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список услуг</title>
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/services_admin.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <p>ДОСААФ Кострома</p>
+        </div>
+        <div class="links">
+            <a class="header-link">Главная</a>
+            <div class="line"></div>
+            <a class="header-link">Новости</a>
+            <div class="line"></div>
+            <a class="header-link">Услуги</a>
+        </div>
+        <div class="user">
+            <a id="profile-link" class="header-link">Войти</a>
+        </div>
+    </header>
+
+    <div id="bread-crumbs">
+        <a class="bread-crumb" href="personal_account.html">Личный кабинет</a>
+        <p class="bread-crumb-sep">></p>
+        <a class="bread-crumb" href="list_of_tests.html">Список услуг</a>
+    </div>
+
+    <h1>Список услуг</h1>
+    
+    <div class="create-service">
+        <p class="create-service-title">Желаете добавить услугу?</p>
+        <a class="create-service-button" onclick="open_modal_window()">Создать услугу</a>
+    </div>
+
+    <div id="modal-window">
+        <div class="shadow"></div>
+        <div class="modal">
+            <div class="modal-top">
+                <div class="modal-name">Добавить услугу</div>
+                <div id="modal-close" onclick="close_modal_window()">✖</div>
+            </div>
+
+            <div class="modal-body">
+                <p class="service-modal-title">Название услуги</p>
+                <input id="service-name" type="text" name="service-name" placeholder="Введите название услуги">
+
+                <p class="service-modal-title">Описание услуги</p>
+                <input id="service-desc" type="text" name="service-desc" placeholder="Введите описание услуги">
+
+                <p class="service-modal-title">Цена услуги</p>
+                <input id="service-cost" type="number" name="service-cost" placeholder="Введите цену услуги">
+            </div>
+            <div class="modal-bottom">
+                <p id="service-create" onclick="create_service()">Создать услугу</p>
+                <p id="service-error"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="services">
+        
+    </div>
+
+</body>
+<script></script>
+<script src="scripts/services_admin.js"></script>
+<script src="scripts/profile_check.js"></script>
+<script src="scripts/modal_window.js"></script>
+</html>

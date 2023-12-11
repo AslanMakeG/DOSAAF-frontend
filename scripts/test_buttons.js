@@ -1,8 +1,8 @@
 function delete_test(button){
-    let test = button.parentNode.parentNode;
+    let test = button.parentNode;
     let test_id = test.dataset.id;
 
-    let status = delete_test_on_server(test_id, test);
+    delete_test_on_server(test_id, test);
 }
 
 //удалить тест на сервере
@@ -14,11 +14,11 @@ function delete_test_on_server(id, element){
     })
     .then(response => {
         if(response['status'] == 200){
-            element.parentNode.removeChild(element);
+            element.parentNode.parentNode.removeChild(element.parentNode);
         }
     });
 } //стоит перенести в plugin_API
 
 function solve_test(button){
-    window.location.replace(`test.html?test_id=${button.dataset.id}`);
+    window.location.replace(`test.html?test_id=${button.parentNode.dataset.id}`);
 }

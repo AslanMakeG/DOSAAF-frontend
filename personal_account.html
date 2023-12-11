@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Личный кабинет</title>
+    <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/personal_account.css">
+    <script src="scripts/check_user_login.js"></script>
 </head>
 <body>
     <header>
@@ -18,10 +22,23 @@
             <a class="header-link">Услуги</a>
         </div>
         <div class="user">
-            <img src="images/user_icon.png">
             <a id="profile-link" class="header-link">Войти</a>
         </div>
     </header>
+
+    <h1>Личный кабинет</h1>
+
+    <div class="user-info">
+        <div class="user-info-title">
+            Личная информация
+        </div>
+        <div class="user-info-body">
+            <p id="user-info-FIO">ФИО: </p>
+            <p id="user-info-email">Email: </p>
+        </div>
+    </div>
+
 </body>
 <script src="scripts/profile_check.js"></script>
+<script src="scripts/profile.js"></script>
 </html>

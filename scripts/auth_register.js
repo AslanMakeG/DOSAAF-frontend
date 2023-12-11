@@ -1,3 +1,7 @@
+if(localStorage.getItem("UID")){
+    window.location.replace('index.html');
+}
+
 let auth_button = document.getElementById('auth-button');
 let register_button = document.getElementById('register-button');
 
@@ -26,6 +30,11 @@ function raise_auth_error(error){
     document.getElementById('auth-error').textContent = error;
 }
 
+function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+}
+
 function register_user(){
     let name = document.getElementById('register-name');
     let surname = document.getElementById('register-surname');
@@ -46,6 +55,11 @@ function register_user(){
 
     if(!email.value){
         raise_register_error('Заполните Email')
+        return;
+    }
+
+    if(!validateEmail(email.value)){
+        raise_register_error('Email указан в неверном формате')
         return;
     }
 
@@ -123,6 +137,7 @@ function auth_user(){
             }
             else if(text['status'] == 200){
                 localStorage.setItem('UID', text['user_id']);
+                window.location.replace('personal_account.html');
             }
         }
     );

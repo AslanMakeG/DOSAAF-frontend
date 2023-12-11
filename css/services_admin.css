@@ -1,0 +1,94 @@
+.create-service-title{
+    font-size: 24px;
+}
+
+.create-service-button{
+    color: #00A1D3;
+    font-size: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.create-service{
+    display: flex;
+    width: 75%;
+    margin-top: 25px;
+}
+
+.service-modal-title{
+    font-size: 18px;
+    padding: 5px 0 5px 0;
+}
+
+input{
+    font-size: 16px;
+    padding: 5px;
+}
+
+#service-create{
+    border: 2px solid #d9d9d9;
+    background-color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#service-create:hover{
+    background-color: rgb(175, 175, 175);
+}
+
+#services{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin-top: 10px;
+}
+
+.service{
+    width: 100%;
+    border: 2px solid #d9d9d9;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.service-title{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.service-desc{
+    font-size: 19px;
+}
+
+.service-bottom{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-cost{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.remove-service{
+    color: red;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#service-error{
+    color: red;
+    overflow-wrap: break-word;
+    margin-left: 10px;
+}
+
+.modal-bottom{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
