@@ -18,30 +18,30 @@ else{
 }
 
 fetch('http://127.0.0.1:8000/api/get_services', {
-    headers: {
-       'Accept': 'application/json'
+headers: {
+   'Accept': 'application/json'
+}
+})
+.then(response => response.json())
+.then(text => {
+    for(let i = 0; i < text['services'].length; i++){
+        let service = text['services'][i];
+        document.getElementById('services').innerHTML += `<div class="service" data-id="${service['id']}">
+                    <div class="service-title">
+                    ${service['name']}
+                    </div>
+                    <div class="service-desc">
+                        ${service['description']}
+                    </div>
+                    <div class="service-bottom">
+                        <div class="service-cost">
+                            Цена: ${service['cost']} руб.
+                        </div>
+                        <p class="remove-service" onclick="remove_serive(this)">Удалить</p>
+                    </div>
+                </div>`;
     }
-    })
-    .then(response => response.json())
-    .then(text => {
-        for(let i = 0; i < text['services'].length; i++){
-            let service = text['services'][i];
-            document.getElementById('services').innerHTML += `<div class="service" data-id="${service['id']}">
-                        <div class="service-title">
-                        ${service['name']}
-                        </div>
-                        <div class="service-desc">
-                            ${service['description']}
-                        </div>
-                        <div class="service-bottom">
-                            <div class="service-cost">
-                                Цена: ${service['cost']} руб.
-                            </div>
-                            <p class="remove-service" onclick="remove_serive(this)">Удалить</p>
-                        </div>
-                    </div>`;
-        }
-    });
+});
 
 function raise_creation_error(error){
     document.getElementById('service-error').textContent = error;

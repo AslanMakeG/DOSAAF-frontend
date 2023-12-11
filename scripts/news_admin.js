@@ -18,27 +18,27 @@ else{
 }
 
 fetch('http://127.0.0.1:8000/api/get_news', {
-    headers: {
-       'Accept': 'application/json'
+headers: {
+   'Accept': 'application/json'
+}
+})
+.then(response => response.json())
+.then(text => {
+    for(let i = 0; i < text['news'].length; i++){
+        let news = text['news'][i];
+        document.getElementById('news').innerHTML += `<div class="news" data-id="${news['id']}">
+                    <div class="news-title">
+                    ${news['name']}
+                    </div>
+                    <div class="news-desc">
+                        ${news['description']}
+                    </div>
+                    <div class="news-bottom">
+                        <p class="remove-news" onclick="remove_news(this)">Удалить</p>
+                    </div>
+                </div>`;
     }
-    })
-    .then(response => response.json())
-    .then(text => {
-        for(let i = 0; i < text['news'].length; i++){
-            let news = text['news'][i];
-            document.getElementById('news').innerHTML += `<div class="news" data-id="${news['id']}">
-                        <div class="news-title">
-                        ${news['name']}
-                        </div>
-                        <div class="news-desc">
-                            ${news['description']}
-                        </div>
-                        <div class="news-bottom">
-                            <p class="remove-news" onclick="remove_news(this)">Удалить</p>
-                        </div>
-                    </div>`;
-        }
-    });
+});
 
 function raise_creation_error(error){
     document.getElementById('news-error').textContent = error;

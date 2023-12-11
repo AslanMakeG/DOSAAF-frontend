@@ -82,3 +82,9 @@ body{
 .bread-crumb-sep{
     margin: 0 10px 0 10px;
 }
+
+.index-main{
+    width: 75%;
+    margin-top: 25px;
+    overflow-wrap:break-word;
+}
