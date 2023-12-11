@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список услуг</title>
+    <title>Список новостей</title>
     <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/services_admin.css">
+    <link rel="stylesheet" type="text/css" href="css/news_admin.css">
     <link rel="stylesheet" type="text/css" href="css/modal.css">
 </head>
 <body>
@@ -29,48 +29,46 @@
     <div id="bread-crumbs">
         <a class="bread-crumb" href="personal_account.html">Личный кабинет</a>
         <p class="bread-crumb-sep">></p>
-        <a class="bread-crumb" href="services_admin.html">Список услуг</a>
+        <a class="bread-crumb" href="news_admin.html">Список новостей</a>
     </div>
 
-    <h1>Список услуг</h1>
+    <h1>Список новостей</h1>
     
-    <div class="create-service">
-        <p class="create-service-title">Желаете добавить услугу?</p>
-        <a class="create-service-button" onclick="open_modal_window()">Создать услугу</a>
+    <div class="create-news">
+        <p class="create-news-title">Желаете добавить новость?</p>
+        <a class="create-news-button" onclick="open_modal_window()">Создать новость</a>
     </div>
 
     <div id="modal-window">
         <div class="shadow"></div>
         <div class="modal">
             <div class="modal-top">
-                <div class="modal-name">Добавить услугу</div>
+                <div class="modal-name">Добавить новость</div>
                 <div id="modal-close" onclick="close_modal_window()">✖</div>
             </div>
 
             <div class="modal-body">
-                <p class="service-modal-title">Название услуги</p>
-                <input id="service-name" type="text" name="service-name" placeholder="Введите название услуги">
+                <p class="news-modal-title">Название новости</p>
+                <input id="news-name" type="text" name="news-name" placeholder="Введите название услуги">
 
-                <p class="service-modal-title">Описание услуги</p>
-                <input id="service-desc" type="text" name="service-desc" placeholder="Введите описание услуги">
-
-                <p class="service-modal-title">Цена услуги</p>
-                <input id="service-cost" type="number" name="service-cost" placeholder="Введите цену услуги">
+                <p class="news-modal-title">Описание новости</p>
+                <input id="news-desc" type="text" name="news-desc" placeholder="Введите описание услуги">
             </div>
+
             <div class="modal-bottom">
-                <p id="service-create" onclick="create_service()">Создать услугу</p>
-                <p id="service-error"></p>
+                <p id="news-create" onclick="create_news()">Создать новость</p>
+                <p id="news-error"></p>
             </div>
         </div>
     </div>
 
-    <div id="services">
+    <div id="news">
         
     </div>
 
 </body>
 <script></script>
-<script src="scripts/services_admin.js"></script>
+<script src="scripts/news_admin.js"></script>
 <script src="scripts/profile_check.js"></script>
 <script src="scripts/modal_window.js"></script>
 </html>

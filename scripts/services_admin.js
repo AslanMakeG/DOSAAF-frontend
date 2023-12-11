@@ -77,11 +77,7 @@ function create_service(){
         raise_creation_error("Заполните стоимость услуги")
         return
     }
-    console.log({
-        "name": name.value,
-        "description": desc.value,
-        "cost": cost.value
-    });
+
     fetch("http://127.0.0.1:8000/api/create_service", {
         method: "POST",
         body: JSON.stringify({
